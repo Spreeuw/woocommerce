@@ -297,7 +297,7 @@ class WC_Emails {
 				'name' => apply_filters( 'woocommerce_order_item_name', $item['name'], $item, $is_visible )
 			);
 
-			if ( $sku = $product->get_sku() ) {
+			if ( $product && $sku = $product->get_sku() ) {
 				$item_offered['sku'] = $sku;
 			}
 
@@ -307,7 +307,7 @@ class WC_Emails {
 				$item_offered['url'] = get_home_url();
 			}
 
-			if ( $image_id = $product->get_image_id() ) {
+			if ( $product && $image_id = $product->get_image_id() ) {
 				$item_offered['image'] = wp_get_attachment_image_url( $image_id, 'thumbnail' );
 			}
 
